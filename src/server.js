@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
-const port = 5000;
+const port = 5001;
 // Load env vars
 
 
@@ -29,7 +29,7 @@ const PORT = port;
 async function start() {
   await connectDB();   // phải await
 
-  app.listen(5000, () => {
+  app.listen(5001, () => {
     console.log("server chạaaaaaaaaaaaaaaaay");
   });
 }
