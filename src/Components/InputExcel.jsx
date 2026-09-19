@@ -33,19 +33,19 @@ function InputExcel() {
                         product: item[5],
                         country: item[6],
                         partner: "PW",
-                        urlDesign: item[7],
-                        dateItem: item[8],
-                        orderName: item[9],
-                        note: item[10],
-                        location: item[11],
-                        ItemBarcode: item[12],
-                        OrderType: item[13],
-                        TikTokShipBy: item[14],
-                        Priority: item[15],
-                        Factory: item[16],
-                        ProductionNote: item[17],
-                        QCNote: item[18],
-                        Status: item[19]
+                        urlDesign: item[8],
+                        dateItem: item[9],
+                        orderName: item[10],
+                        note: item[11],
+                        location: item[12],
+                        ItemBarcode: item[13],
+                        OrderType: item[14],
+                        TikTokShipBy: item[15],
+                        Priority: item[16],
+                        Factory: item[17],
+                        ProductionNote: item[18],
+                        QCNote: item[19],
+                        Status: item[20]
                     }))
                     newSheet.shift();
                     newSheet = newSheet.filter(item => item.orderId !== null);
