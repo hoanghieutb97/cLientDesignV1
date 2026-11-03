@@ -32,7 +32,7 @@ function InputExcel() {
                         variant: item[4],
                         product: item[5],
                         country: item[6],
-                        partner: "PW",
+                        partner: item[7],
                         urlDesign: item[8],
                         dateItem: item[9],
                         orderName: item[10],
@@ -93,8 +93,38 @@ function InputExcel() {
     // let xxxx = sortSheet2(sheet, activeProduct.product, products);
     // console.log("xxxx", xxxx);
 
-    sheet = sortSheet(sheet, activeProduct.product,products)
-console.log("sheetttttttt", dupItems(sheet));
+    sheet = sortSheet(sheet, activeProduct.product, products)
+
+    const rules = [
+        {
+            product: [
+                "3 Layered Christmas Shaker Ornament",
+                "5 Layered Christmas Shaker Ornament"
+            ],
+            partner: "PWSER1411",
+            noteLabel: "trắng, caro"
+        },
+
+        // Thêm rule khác tại đây
+    ];
+
+    sheet = sheet.map(item => {
+        const matchedRules = rules.filter(rule =>
+            rule.product.includes(item.product) &&
+            rule.partner === item.partner
+        );
+
+        if (matchedRules.length === 0) return item;
+
+        return {
+            ...item,
+            noteLabel: [
+                item.noteLabel,
+                ...matchedRules.map(rule => rule.noteLabel)
+            ].filter(Boolean).join(", ")
+        };
+    });
+    console.log("sheetttttttt", dupItems(sheet));
     let strWrite = {
         items: dupItems(sheet),
         type: activeProduct.product,
