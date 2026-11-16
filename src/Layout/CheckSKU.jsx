@@ -12,7 +12,7 @@ function CheckSKU(props) {
     sheet = sheet.filter(item => {
         return unique.hasOwnProperty(item.sku) ? false : (unique[item.sku] = true);
     });
-    console.log(sheet);
+    // console.log(sheet);
     const [DeoMeSheet, setDeoMeSheet] = useState([]);
     let localFile = activeProduct.localFile;
     const handlegetLocalFile = (event) => {
@@ -31,7 +31,7 @@ function CheckSKU(props) {
     }
     let lostSheet = sheet.map(item => {
         if (item.amountFile == "1") {
-console.log(item);
+
 
 
             if (_.intersection(localFile, [item.sku.toLowerCase()]).length == 0) return ({ ...item, haveSku: false })

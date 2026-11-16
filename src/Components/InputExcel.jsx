@@ -20,7 +20,7 @@ function InputExcel() {
 
     useEffect(() => {
         const input = document.getElementById('input')
-        document.getElementById('input').addEventListener('change', () => {
+        document.getElementById('input').addEventListener('change', () => { 
             var listA = [];
             for (let j = 0; j < input.files.length; j++) {
                 readXlsxFile(input.files[j]).then((rows, a) => {
@@ -124,7 +124,7 @@ function InputExcel() {
             ].filter(Boolean).join(", ")
         };
     });
-    console.log("sheetttttttt", dupItems(sheet));
+    // console.log("sheetttttttt", dupItems(sheet));
     let strWrite = {
         items: dupItems(sheet),
         type: activeProduct.product,

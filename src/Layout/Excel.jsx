@@ -20,18 +20,18 @@ function Excel(props) {
                     <TachKhach />
                 </div>
             </div> */}
-            {/* <div className=" ctn-excel tach-sku mt-3">
+            <div className=" ctn-excel tach-sku mt-3">
                 <div className="">
                     <p className="title-ex">Tách bằng Variant</p>
                     <TachVariant />
                 </div>
             </div>
-            <div className=" ctn-excel tach-sku mt-3">
+            {/* <div className=" ctn-excel tach-sku mt-3">
                 <div className="">
                     <p className="title-ex">Tách bằng SKU</p>
                     <TachSKU />
-                </div> */}
-            {/* </div> */}
+                </div>
+            </div> */}
             <div className=" ctn-excel tach-sku mt-3">
                 <div className="">  <p className="title-ex">Thống kê</p>
                     <ThongKe />

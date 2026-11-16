@@ -8,7 +8,7 @@ import dupItems from '../CalcFunctions/dupItems';
 function TachVariant(props) {
     const [state, dispatch] = useStore();
     let { sheet, activeProduct } = state;
-    
+
     const [ActiveButton, setActiveButton] = useState([]);
     let listVariant = _.uniq(sheet.map(item => item.variant)).map(item => sheet.filter(itemFilter => itemFilter.variant === item))
     let handChangeButton = (item) => {
@@ -20,29 +20,7 @@ function TachVariant(props) {
             setActiveButton([...ActiveButton, item])
         }
     }
-    let vcll = {
-        orderId: '#OrderId',
-        barcode: 'Barcode',
-        sku: 'SKU',
-        Quantity: "Quantity",
-        variant: 'Variant',
-        product: 'Product Type',
-        country: 'Country Code',
-        partner: 'Partner',
-        urlDesign: 'Design URL',
-        dateItem: 'Date Received',
-        orderName: 'Order Name',
-        note: "Note",
-        location: 'Location',
-        ItemBarcode: 'Item Barcode',
-        OrderType: "Order Type",
-        TikTokShipBy: "TikTok Ship By",
-        Priority: "Priority",
-        Factory: "Factory",
-        ProductionNote: "Production Note",
-        QCNote: "QC Note",
-        Status: "Status"
-    }
+
     let handleDownExcel = () => {
         let returnSheet = sheet.filter(item => (_.intersection([item.variant], ActiveButton).length !== 0) ? true : false);
         console.log(returnSheet);
@@ -56,11 +34,10 @@ function TachVariant(props) {
             delete returnSheet[i].width;
             delete returnSheet[i].hight;
             delete returnSheet[i].amountFile;
+            delete returnSheet[i].noteLabel;
 
         }
-        // returnSheet = [vcll, ...returnSheet];
 
-        // console.log(returnSheet);
         const ws = XLSX.utils.json_to_sheet(returnSheet)
         const wb = XLSX.utils.book_new()
         XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
